@@ -1,0 +1,487 @@
+/* ============================================================
+   Home.css — Pixel-faithful layout matching 02 Accueil.svg
+   Artboard proportions: 1440 x 900
+   ============================================================ */
+@import './variables.css';
+
+/* ── Full canvas with layered radial gradients ───────────── */
+.home-page {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-home-canvas);
+  padding-bottom: 32px;
+  overflow-x: hidden;
+}
+
+/* ── Main 2-column grid (1200px centered = x=120..1320) ──── */
+.home-main {
+  width: 100%;
+  max-width: 1248px;
+  margin: 26px auto 0;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 760px) 400px;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LEFT COLUMN
+   ══════════════════════════════════════════════════════════ */
+.home-left-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Greeting */
+.home-title {
+  font-size: 42px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.home-title span {
+  color: var(--color-primary);
+}
+
+.home-date-sub {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--color-ink-muted);
+  font-weight: var(--fw-regular);
+}
+
+/* Section Title: "Le menu d'aujourd'hui" */
+.menu-section {
+  margin-top: 32px;
+}
+
+.home-section-title {
+  font-size: 22px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  margin-bottom: 18px;
+  letter-spacing: -0.015em;
+}
+
+/* ── Two Side-by-Side Menu Cards (450 + 290, gap 20) ─────── */
+.menu-cards-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 20px;
+}
+
+.meal-hero-card {
+  position: relative;
+  min-height: 400px;
+  border-radius: var(--radius-2xl);
+  padding: 32px 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Lunch Orange Card */
+.meal-hero-card--lunch {
+  background: var(--gradient-orange-card-diag);
+  box-shadow: var(--shadow-meal-card);
+}
+
+.meal-hero-clip {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.meal-hero-deco-circle {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  top: -130px;
+  right: -110px;
+}
+
+.sticker-sun {
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  top: -38px;
+  right: -4px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.meal-hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.meal-slot-time {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: var(--fw-regular);
+}
+
+.meal-slot-title {
+  margin-top: 10px;
+  font-size: 34px;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.btn-see-meal {
+  margin-top: 28px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 23px;
+  border: none;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(42, 26, 58, 0.08);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.btn-see-meal:hover {
+  transform: translateY(-1px);
+}
+
+.lunch-plate-wrap {
+  position: absolute;
+  width: 276px;
+  height: 276px;
+  right: 8px;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--color-white);
+  overflow: hidden;
+  box-shadow: var(--shadow-food);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.lunch-plate-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 2. Dinner Peach Card */
+.meal-hero-card--dinner {
+  background: var(--color-peach-card);
+  box-shadow: var(--shadow-card-md);
+  justify-content: space-between;
+  padding: 32px 28px 28px 30px;
+}
+
+.sticker-moon {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  top: -36px;
+  right: -12px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.meal-slot-time--dark {
+  color: rgba(31, 36, 32, 0.75);
+}
+
+.meal-slot-title--dark {
+  color: var(--color-ink);
+  font-size: 31px;
+}
+
+.dinner-subtext {
+  margin-top: 14px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: rgba(31, 36, 32, 0.75);
+}
+
+.dinner-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-dinner-dark {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-size: 14.5px;
+  font-weight: var(--fw-semibold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(42, 26, 58, 0.08);
+  transition: transform var(--transition-fast);
+}
+
+.btn-dinner-dark:hover {
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════════════════════
+   RIGHT COLUMN (400px)
+   ══════════════════════════════════════════════════════════ */
+.home-right-col {
+  display: flex;
+  flex-direction: column;
+  padding-top: 22px;
+}
+
+.shortcuts-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.home-right-title {
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  letter-spacing: -0.015em;
+}
+
+.sticker-question {
+  position: absolute;
+  right: 4px;
+  top: -12px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Shortcut Pills */
+.shortcuts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shortcut-pill {
+  width: 100%;
+  height: 64px;
+  padding: 0 20px 0 10px;
+  border-radius: 32px;
+  border: none;
+  background: var(--color-white);
+  box-shadow: var(--shadow-card-sm);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.shortcut-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card-md);
+}
+
+.shortcut-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.shortcut-icon--orange {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.shortcut-icon--beige {
+  background: var(--color-beige-circle);
+  color: var(--color-ink);
+}
+
+.shortcut-label {
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+  flex: 1;
+  text-align: left;
+}
+
+.shortcut-chevron {
+  color: var(--color-ink-muted);
+}
+
+/* AI Dinner Ideas */
+.ideas-section {
+  margin-top: 28px;
+}
+
+.ideas-section .home-right-title {
+  margin-bottom: 18px;
+}
+
+.ideas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.idea-card {
+  width: 100%;
+  height: 98px;
+  padding: 0 18px 0 16px;
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card-sm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.idea-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card-md);
+}
+
+.idea-card.selected {
+  outline: 2px solid var(--color-primary);
+}
+
+.idea-card-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-white);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(42, 26, 58, 0.12);
+}
+
+.idea-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.idea-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.idea-card-title {
+  font-size: 16.5px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  line-height: 1.25;
+}
+
+.idea-card-sub {
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--color-ink-muted);
+  line-height: 1.25;
+}
+
+.idea-card-btn {
+  min-width: 106px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 22px;
+  border: none;
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(42, 26, 58, 0.08);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.idea-card-btn:hover {
+  background: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.idea-card-btn.chosen {
+  background: var(--color-primary);
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 1220px) {
+  .home-main {
+    grid-template-columns: 1fr 360px;
+    gap: 28px;
+  }
+
+  .lunch-plate-wrap {
+    width: 210px;
+    height: 210px;
+  }
+}
+
+@media (max-width: 980px) {
+  .home-main {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+  }
+
+  .home-right-col {
+    padding-top: 8px;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-title {
+    font-size: 32px;
+  }
+
+  .menu-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meal-hero-card {
+    min-height: 360px;
+  }
+
+  .lunch-plate-wrap {
+    width: 200px;
+    height: 200px;
+    right: 12px;
+    bottom: 12px;
+  }
+}
