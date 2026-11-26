@@ -1,0 +1,621 @@
+/* ============================================================
+   Login.css — Pixel-faithful layout matching 01 Connexion.svg
+   Artboard proportions: 1440 x 900
+   ============================================================ */
+@import './variables.css';
+
+/* ── Full-screen layered radial gradient canvas ──────────── */
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-login-canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  overflow-x: hidden;
+}
+
+/* ── 1440px max container with 2 columns ─────────────────── */
+.login-artboard {
+  width: 100%;
+  max-width: 1360px;
+  display: grid;
+  grid-template-columns: minmax(460px, 700px) 1fr;
+  align-items: center;
+  gap: 56px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LEFT PANEL: Orange Rounded Card (700 x 820, radius 44px)
+   ══════════════════════════════════════════════════════════ */
+.login-hero-card {
+  position: relative;
+  width: 100%;
+  height: 820px;
+  border-radius: var(--radius-card-lg);
+  background: var(--gradient-orange-card);
+  box-shadow: var(--shadow-hero-card);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clipped layer solely for the translucent circle so food plates can overlap cleanly */
+.login-hero-bg-clip {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.login-hero-deco-circle {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  top: -160px;
+  right: -120px;
+}
+
+/* Top-left logo */
+.login-logo {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-logo-name {
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+/* Centered hero copy */
+.login-hero-copy {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin-top: 64px;
+}
+
+.login-hero-heading {
+  font-size: 46px;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+}
+
+.login-hero-sub {
+  font-size: 18px;
+  font-weight: var(--fw-regular);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.48;
+}
+
+/* Floating AI Pill + Robot Sticker */
+.login-ai-pill-wrap {
+  position: relative;
+  z-index: 5;
+  margin-top: 72px;
+  width: fit-content;
+}
+
+.login-ai-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 270px;
+  height: 64px;
+  padding: 0 18px 0 12px;
+  background: var(--color-white);
+  border-radius: 32px;
+  box-shadow: 0 10px 22px rgba(42, 26, 58, 0.15);
+}
+
+.ai-pill-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-ai-sparkle);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ai-pill-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-pill-title {
+  font-size: 13.5px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  line-height: 1.25;
+}
+
+.ai-pill-sub {
+  font-size: 11.5px;
+  color: var(--color-ink-muted);
+  line-height: 1.25;
+}
+
+.login-robot-sticker {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  top: -28px;
+  right: -40px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Circular Food Plates (exact coordinates relative to 700x820 card) */
+.food-plate {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-white);
+  overflow: hidden;
+  box-shadow: var(--shadow-food);
+  pointer-events: none;
+}
+
+.food-plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.food-plate--couscous {
+  width: 410px;
+  height: 410px;
+  left: 225px;
+  top: 395px;
+  z-index: 2;
+}
+
+.food-plate--makroud {
+  width: 156px;
+  height: 156px;
+  left: 32px;
+  top: 522px;
+  z-index: 3;
+}
+
+.food-plate--chorba {
+  width: 124px;
+  height: 124px;
+  left: 68px;
+  top: 688px;
+  z-index: 4;
+}
+
+.food-plate--mechouia {
+  width: 140px;
+  height: 140px;
+  right: -40px;
+  top: 340px;
+  z-index: 4;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RIGHT PANEL: Form Column (480px wide in SVG)
+   ══════════════════════════════════════════════════════════ */
+.login-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-box {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  padding-top: 24px;
+}
+
+/* Chef Mascot Sticker */
+.login-chef-sticker {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+}
+
+.login-title {
+  font-size: 48px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.login-title span {
+  color: var(--color-primary);
+}
+
+.login-subtitle {
+  font-size: 18px;
+  color: var(--color-ink-muted);
+  margin-bottom: 42px;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 20px;
+  color: var(--color-ink-muted);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.form-input {
+  width: 100%;
+  height: 60px;
+  padding: 0 20px 0 52px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-input-border);
+  border-radius: var(--radius-lg);
+  font-size: 15.5px;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input.has-right {
+  padding-right: 52px;
+}
+
+.form-input::placeholder {
+  color: var(--color-ink-placeholder);
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 61, 0.14);
+}
+
+.form-input.error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.10);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-ink-muted);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: color var(--transition-fast);
+}
+
+.password-toggle:hover {
+  color: var(--color-ink);
+}
+
+.field-error {
+  font-size: 12.5px;
+  color: var(--color-error);
+  font-weight: var(--fw-medium);
+}
+
+/* Options Row */
+.form-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.remember-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--color-ink);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.sr-only-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.check-box {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1.5px solid var(--color-input-border);
+  background: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  transition: all var(--transition-fast);
+}
+
+.check-box.checked {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+.forgot-link {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.forgot-link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* White Pill Submit Button with Dark Arrow Circle (480x68, radius 34px) */
+.btn-login-pill {
+  width: 100%;
+  height: 68px;
+  padding: 0 8px 0 30px;
+  background: var(--color-white);
+  border: none;
+  border-radius: 34px;
+  box-shadow: var(--shadow-btn-pill);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-login-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(42, 26, 58, 0.14);
+}
+
+.btn-login-pill:active {
+  transform: translateY(0);
+}
+
+.btn-login-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-login-pill:hover .btn-login-circle {
+  background: var(--color-primary);
+  transform: translate(1px, -1px);
+}
+
+/* Bottom Signup Row */
+.login-signup-text {
+  margin-top: 34px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-ink-muted);
+}
+
+.signup-link {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 1220px) {
+  .login-artboard {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .login-hero-card {
+    height: 760px;
+  }
+
+  .food-plate--couscous {
+    width: 320px;
+    height: 320px;
+    left: auto;
+    right: 24px;
+    top: auto;
+    bottom: 20px;
+  }
+
+  .food-plate--makroud {
+    width: 120px;
+    height: 120px;
+    left: 24px;
+    top: auto;
+    bottom: 140px;
+  }
+
+  .food-plate--chorba {
+    width: 100px;
+    height: 100px;
+    left: 48px;
+    top: auto;
+    bottom: 24px;
+  }
+
+  .food-plate--mechouia {
+    width: 112px;
+    height: 112px;
+    right: -24px;
+    top: 340px;
+  }
+
+  .login-hero-heading {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 960px) {
+  .login-page {
+    padding: 20px;
+  }
+
+  .login-artboard {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    gap: 32px;
+  }
+
+  .login-hero-card {
+    height: auto;
+    min-height: 420px;
+    padding: 28px;
+    border-radius: 32px;
+  }
+
+  .login-hero-copy {
+    margin-top: 28px;
+  }
+
+  .login-hero-heading {
+    font-size: 32px;
+  }
+
+  .login-hero-sub {
+    font-size: 15px;
+  }
+
+  .login-ai-pill-wrap {
+    margin-top: 24px;
+    margin-bottom: 110px;
+  }
+
+  .food-plate--couscous {
+    width: 180px;
+    height: 180px;
+    right: 16px;
+    bottom: -24px;
+  }
+
+  .food-plate--makroud {
+    width: 88px;
+    height: 88px;
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .food-plate--chorba,
+  .food-plate--mechouia {
+    display: none;
+  }
+
+  .login-chef-sticker {
+    width: 90px;
+    height: 90px;
+    top: -12px;
+  }
+
+  .login-title {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-hero-card {
+    min-height: 340px;
+    padding: 22px;
+  }
+
+  .login-ai-pill {
+    width: 235px;
+    height: 56px;
+  }
+
+  .login-robot-sticker {
+    width: 56px;
+    height: 56px;
+    top: -20px;
+    right: -24px;
+  }
+
+  .food-plate--couscous {
+    width: 140px;
+    height: 140px;
+  }
+
+  .login-chef-sticker {
+    display: none;
+  }
+
+  .login-title {
+    font-size: 32px;
+  }
+}
