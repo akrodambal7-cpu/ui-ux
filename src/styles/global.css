@@ -1,0 +1,89 @@
+/* ============================================================
+   global.css – Base reset and typography imports
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import './variables.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ── Weighty, smooth wiggle-float animation (Home screen stickers only) ── */
+@keyframes sticker-wiggle {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+  25% {
+    transform: translate3d(2px, -4px, 0) rotate(1.2deg);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0) rotate(2.2deg);
+  }
+  75% {
+    transform: translate3d(-2px, -3px, 0) rotate(-1deg);
+  }
+}
+
+.sticker-sun,
+.sticker-moon,
+.sticker-question {
+  animation: sticker-wiggle 5.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+}
+
+.sticker-moon {
+  animation-delay: -1.8s;
+}
+
+.sticker-question {
+  animation-delay: -3.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker-sun,
+  .sticker-moon,
+  .sticker-question {
+    animation: none;
+  }
+}

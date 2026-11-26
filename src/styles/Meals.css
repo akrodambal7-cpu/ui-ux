@@ -1,0 +1,343 @@
+/* ============================================================
+   Meals.css — Pixel-faithful styles matching 03 Mes repas.svg
+   ============================================================ */
+@import './variables.css';
+
+.meals-page {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-warm-canvas);
+  padding-bottom: 52px;
+  overflow-x: hidden;
+}
+
+.meals-main {
+  width: 100%;
+  max-width: 1248px;
+  margin: 28px auto 0;
+  padding: 0 24px;
+}
+
+/* ── Header Row ───────────────────────────────────────────── */
+.meals-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.meals-title {
+  font-size: 42px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+.meals-title span {
+  color: var(--color-primary);
+}
+
+.meals-subtitle {
+  margin-top: 6px;
+  font-size: 15.5px;
+  color: var(--color-ink-muted);
+}
+
+/* + Ajouter un repas CTA with overlapping plus sticker */
+.add-meal-cta-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 62px;
+}
+
+.add-meal-sticker {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.btn-add-meal {
+  height: 54px;
+  padding: 0 28px;
+  border-radius: 27px;
+  border: none;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 15.5px;
+  font-weight: var(--fw-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(255, 107, 61, 0.28);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.btn-add-meal:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ── Toolbar (Search + Category Pills) ────────────────────── */
+.meals-toolbar {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.meals-search-box {
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  height: 50px;
+  background: var(--color-white);
+  border-radius: 25px;
+  box-shadow: var(--shadow-card-sm);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+}
+
+.meals-search-icon {
+  color: var(--color-ink-muted);
+  flex-shrink: 0;
+}
+
+.meals-search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--color-ink);
+}
+
+.meals-search-box input::placeholder {
+  color: var(--color-ink-placeholder);
+}
+
+.meals-filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 23px;
+  border: none;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: 14.5px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  box-shadow: var(--shadow-card-sm);
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.filter-pill:hover {
+  transform: translateY(-1px);
+}
+
+.filter-pill.active {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+/* ── 4-Column Catalog Grid ────────────────────────────────── */
+.meals-catalog-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 20px;
+}
+
+.meal-catalog-card {
+  position: relative;
+  min-height: 238px;
+  border-radius: 30px;
+  padding: 20px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card-md);
+  transition: transform var(--transition-fast);
+}
+
+.meal-catalog-card:hover {
+  transform: translateY(-3px);
+}
+
+.meal-catalog-card--plat {
+  background: var(--color-primary);
+}
+
+.meal-catalog-card--entree {
+  background: var(--color-green-card);
+}
+
+.meal-catalog-card--dessert {
+  background: var(--color-pink-card);
+}
+
+.meal-catalog-clip {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.meal-catalog-deco {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  top: -50px;
+  right: -40px;
+}
+
+.meal-category-sticker {
+  position: absolute;
+  top: -22px;
+  right: 8px;
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.meal-catalog-head {
+  position: relative;
+  z-index: 3;
+  max-width: 145px;
+}
+
+.meal-catalog-name {
+  font-size: 19px;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  line-height: 1.18;
+}
+
+.meal-catalog-cat {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: var(--fw-medium);
+}
+
+.meal-catalog-plate {
+  position: absolute;
+  right: -4px;
+  bottom: 42px;
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  background: var(--color-white);
+  overflow: hidden;
+  box-shadow: 0 10px 22px rgba(42, 26, 58, 0.22);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.meal-catalog-plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meal-catalog-actions {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 84px;
+}
+
+.btn-card-edit,
+.btn-card-delete {
+  height: 36px;
+  border-radius: 18px;
+  border: none;
+  font-size: 12.5px;
+  font-weight: var(--fw-semibold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.btn-card-edit {
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+.btn-card-delete {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.btn-card-edit:hover,
+.btn-card-delete:hover {
+  transform: translateY(-1px);
+}
+
+.meals-empty {
+  margin-top: 48px;
+  padding: 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 28px;
+  color: var(--color-ink-muted);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1120px) {
+  .meals-catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .meals-title {
+    font-size: 32px;
+  }
+
+  .meals-catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .add-meal-sticker {
+    display: none;
+  }
+
+  .add-meal-cta-wrap {
+    padding-left: 0;
+  }
+
+  .btn-add-meal {
+    padding: 0 24px;
+  }
+}
