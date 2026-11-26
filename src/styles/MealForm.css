@@ -1,0 +1,551 @@
+/* ============================================================
+   MealForm.css — Pixel-faithful styles matching
+   04 Ajouter un repas.svg & 05 Modifier un repas.svg
+   ============================================================ */
+@import './variables.css';
+
+.meal-form-page {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-login-canvas);
+  padding-bottom: 48px;
+  overflow-x: hidden;
+}
+
+.meal-form-main {
+  width: 100%;
+  max-width: 1248px;
+  margin: 30px auto 0;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 460px minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+/* ── Left Visual Card ─────────────────────────────────────── */
+.meal-visual-card {
+  position: relative;
+  min-height: 620px;
+  border-radius: 38px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.meal-visual-card--create {
+  background: var(--color-peach-card);
+  box-shadow: var(--shadow-card-md);
+}
+
+.meal-visual-card--edit {
+  background: var(--gradient-orange-card);
+  box-shadow: var(--shadow-hero-card);
+}
+
+.meal-visual-clip {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.meal-visual-deco {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  top: -100px;
+  right: -90px;
+}
+
+.btn-back-pill {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 21px;
+  border: none;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-card-sm);
+  z-index: 4;
+  transition: transform var(--transition-fast);
+}
+
+.btn-back-pill:hover {
+  transform: translateX(-2px);
+}
+
+.sticker-camera {
+  position: absolute;
+  top: 20px;
+  left: calc(50% - 29px);
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.sticker-pencil {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+/* Upload Dropzone (04) */
+.upload-dropzone {
+  position: relative;
+  z-index: 2;
+  margin-top: 64px;
+  width: 340px;
+  height: 340px;
+  max-width: 100%;
+  border-radius: 50%;
+  border: 2px dashed rgba(31, 36, 32, 0.22);
+  background: rgba(255, 255, 255, 0.36);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.upload-dropzone:hover {
+  background: rgba(255, 255, 255, 0.52);
+  border-color: var(--color-primary);
+}
+
+.upload-camera-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.upload-title {
+  font-size: 18px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+}
+
+.upload-hint {
+  font-size: 13px;
+  color: var(--color-ink-muted);
+}
+
+/* Edit Photo Stage (05) */
+.edit-photo-stage {
+  position: relative;
+  z-index: 2;
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.edit-photo-circle {
+  width: 340px;
+  height: 340px;
+  max-width: 100%;
+  border-radius: 50%;
+  background: var(--color-white);
+  overflow: hidden;
+  box-shadow: var(--shadow-food);
+}
+
+.edit-photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-change-photo {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 24px;
+  border: none;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: 14.5px;
+  font-weight: var(--fw-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: var(--shadow-card-sm);
+  transition: transform var(--transition-fast);
+}
+
+.btn-change-photo:hover {
+  transform: translateY(-1px);
+}
+
+/* ── Right Form Column ────────────────────────────────────── */
+.meal-form-col {
+  position: relative;
+}
+
+.meal-form-header {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.edit-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.meal-form-title {
+  font-size: 42px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+.meal-form-title span {
+  color: var(--color-primary);
+}
+
+.meal-form-sub {
+  margin-top: 6px;
+  font-size: 15.5px;
+  color: var(--color-ink-muted);
+}
+
+.meal-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+}
+
+.star-gold {
+  color: var(--color-star);
+}
+
+.form-plus-sticker {
+  position: absolute;
+  top: -12px;
+  right: 12px;
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+}
+
+.meal-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.meal-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.meal-field-label {
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+}
+
+.name-ai-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.name-input-wrap {
+  position: relative;
+}
+
+.meal-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 20px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-input-border);
+  border-radius: 18px;
+  font-size: 15.5px;
+  color: var(--color-ink);
+  outline: none;
+}
+
+.meal-input:focus,
+.meal-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 61, 0.14);
+}
+
+.meal-input.error {
+  border-color: var(--color-error);
+}
+
+.meal-field-error {
+  font-size: 12.5px;
+  color: var(--color-error);
+  font-weight: var(--fw-medium);
+}
+
+.form-robot-sticker {
+  position: absolute;
+  right: -24px;
+  top: -36px;
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+  filter: var(--shadow-sticker);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.btn-ai-assist {
+  height: 56px;
+  padding: 0 26px;
+  border-radius: 28px;
+  border: none;
+  background: var(--gradient-ai-sparkle);
+  color: var(--color-white);
+  font-size: 14.5px;
+  font-weight: var(--fw-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(255, 107, 61, 0.25);
+  transition: transform var(--transition-fast);
+}
+
+.btn-ai-assist:hover {
+  transform: translateY(-1px);
+}
+
+/* Category Pills */
+.category-pills-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.category-pill {
+  height: 46px;
+  padding: 0 24px;
+  border-radius: 23px;
+  border: none;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: 14.5px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  box-shadow: var(--shadow-card-sm);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.category-pill.active {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+/* Description Textarea */
+.meal-textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-input-border);
+  background: var(--color-white);
+  font-size: 15px;
+  color: var(--color-ink);
+  resize: vertical;
+  outline: none;
+  line-height: 1.5;
+}
+
+/* Ingredients Chips */
+.ingredients-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ingredient-chip {
+  height: 40px;
+  padding: 0 14px 0 18px;
+  border-radius: 20px;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-card-sm);
+}
+
+.ingredient-remove {
+  background: none;
+  border: none;
+  color: var(--color-ink-muted);
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.ingredient-remove:hover {
+  color: var(--color-error);
+}
+
+.btn-add-ingredient {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 20px;
+  border: 1.5px dashed rgba(31, 36, 32, 0.25);
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.ingredient-add-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 8px 0 14px;
+  border-radius: 20px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-primary);
+}
+
+.ingredient-add-inline input {
+  width: 110px;
+  border: none;
+  outline: none;
+  font-size: 13.5px;
+}
+
+.ingredient-add-inline button {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 14px;
+  border: none;
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+}
+
+/* Save Pill Button */
+.btn-save-meal {
+  margin-top: 8px;
+  width: 100%;
+  height: 64px;
+  padding: 0 9px 0 28px;
+  border-radius: 32px;
+  border: none;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: 16.5px;
+  font-weight: var(--fw-semibold);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn-pill);
+  transition: transform var(--transition-fast);
+}
+
+.btn-save-meal:hover {
+  transform: translateY(-2px);
+}
+
+.btn-save-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .meal-form-main {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+    gap: 32px;
+  }
+
+  .meal-visual-card {
+    min-height: 400px;
+  }
+
+  .upload-dropzone,
+  .edit-photo-circle {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 560px) {
+  .name-ai-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-plus-sticker,
+  .form-robot-sticker {
+    display: none;
+  }
+
+  .meal-form-title {
+    font-size: 32px;
+  }
+}
