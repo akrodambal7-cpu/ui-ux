@@ -1,9 +1,0 @@
-{
-    "chat.tools.terminal.autoApprove": {
-        "winget": true,
-        "/^npm --version; node --version; npm create vite@latest repito -- --template react$/": {
-            "approve": true,
-            "matchCommandLine": true
-        }
-    }
-}
